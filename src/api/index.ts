@@ -9,12 +9,14 @@ app.use(cors());
 app.use(express.json());
 
 
-app.use('/api/users', userRoutes);
+app.use('/', userRoutes);
 
-const PORT = 3010;
+if (process.env.ENV == "Dev") {
+    const PORT = 3010;
+    app.listen(PORT, () => {
+        console.log(`Server running at http://localhost:${PORT}`);
+    });
+}
 
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-});
 
 export default app;
