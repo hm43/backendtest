@@ -3,8 +3,11 @@ import * as schema from '../entities/schema';
 import postgres from 'postgres';
 import { neon } from '@neondatabase/serverless';
 
-const connectionString = process.env.DATABASE_URL!;
+console.log('DATABASE_URL:', !!process.env.DATABASE_URL);
+console.log('DATABASE_URL full:', process.env.DATABASE_URL);
 
+const connectionString = process.env.DATABASE_URL!;
+/*
 let client: any;
 if (process.env.NODE_ENV === 'production') {
     if (!connectionString?.startsWith('postgresql')) {
@@ -17,3 +20,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export const db = drizzle(client, { schema, logger: false });
+*/
