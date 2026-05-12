@@ -1,11 +1,12 @@
 import express from 'express';
+import { getUsers } from '../controllers/users';
 
 const router = express.Router();
 
-
-
-router.get('/', (req, res) => {
-    res.send('Hello World! from Houda');
+router.get('/', async (req, res) => {
+    const users = await getUsers();
+    console.log("users: ", users);
+    res.json(users);
 });
 
 export default router;
