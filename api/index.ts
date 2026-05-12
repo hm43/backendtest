@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 // import userRoutes from '../routes/users';
@@ -12,5 +13,13 @@ app.get('/', (req, res) => {
 });
 
 // app.use('/api/users', userRoutes);
+
+const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3010;
+
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`Server running at http://localhost:${PORT}`);
+    });
+}
 
 export default app;
